@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for object in object_list %}
+        <h2><a href="{% url 'detail_page' object.id %}">{{ object.title }}</a></h2>
+        <p>{{ object.body | slice:":50" }}</p>
+    {% endfor %}
+
+    <footer>
+        <p><a href="{% url 'post_create' %}">Post qoshish.</a></p>
+    </footer>
+
+{% endblock %}

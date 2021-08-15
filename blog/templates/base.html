@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XanDev</title>
+</head>
+<body>
+
+<header>
+    <h1 style="color: green"><a href="{% url 'home_page' %}">XanDev</a></h1>
+    <hr>
+</header>
+
+{% if user.is_authenticated %}
+    <h3>Xush kelibsiz {{ user.username }}</h3>
+    <h3><a href="{% url 'logout' %}">Login out</a></h3>
+    {% else %}
+    <a href="{% url 'login' %}">Saytga kirish</a>
+    <a href="{% url 'signup' %}">Ro'yxatdan o'tish</a>
+{% endif %}
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>
